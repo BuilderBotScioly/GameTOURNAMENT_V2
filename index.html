@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Family Tournament Scoreboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app"></div>
+
+  <template id="setup-template">
+    <div class="page">
+      <header class="hero">
+        <div>
+          <h1>Family Tournament Scoreboard</h1>
+          <p>Create games, add players, and show a TV-friendly slideshow.</p>
+        </div>
+        <div class="hero-actions">
+          <button class="secondary" id="load-sample">Load Sample</button>
+        </div>
+      </header>
+
+      <div class="grid two">
+        <section class="card">
+          <h2>Tournament</h2>
+          <label>Title</label>
+          <input id="title-input" type="text" placeholder="Family Game Night" />
+          <label>Slide time (seconds)</label>
+          <input id="slide-seconds-input" type="number" min="3" max="30" value="6" />
+        </section>
+
+        <section class="card">
+          <h2>Players</h2>
+          <div class="row">
+            <input id="player-input" type="text" placeholder="Add a player" />
+            <button id="add-player-btn">Add</button>
+          </div>
+          <div id="players-list" class="pill-list"></div>
+        </section>
+
+        <section class="card">
+          <h2>Games</h2>
+          <div class="row">
+            <input id="game-input" type="text" placeholder="Add a game" />
+            <button id="add-game-btn">Add</button>
+          </div>
+          <div id="games-list" class="pill-list"></div>
+        </section>
+
+        <section class="card">
+          <h2>Start</h2>
+          <p>Every player appears in every game. Scores use +1 and -1 buttons.</p>
+          <button id="start-btn" class="primary big">Start Tournament</button>
+        </section>
+      </div>
+    </div>
+  </template>
+
+  <template id="control-template">
+    <div class="page">
+      <header class="hero compact">
+        <div>
+          <h1 id="control-title"></h1>
+          <p>Update scores and open the TV view.</p>
+        </div>
+        <div class="hero-actions">
+          <button class="secondary" id="back-to-setup">Edit Setup</button>
+          <button class="secondary" id="reset-scores-btn">Reset Scores</button>
+          <button class="primary" id="open-display-btn">Open TV Display</button>
+        </div>
+      </header>
+
+      <section class="card">
+        <div class="tab-row" id="game-tabs"></div>
+      </section>
+
+      <section class="card">
+        <div id="score-controls"></div>
+      </section>
+
+      <section class="card">
+        <h2>Overall Standings</h2>
+        <div id="overall-standings"></div>
+      </section>
+    </div>
+  </template>
+
+  <template id="display-template">
+    <div class="display-page">
+      <div class="display-topbar">
+        <div>
+          <h1 id="display-title"></h1>
+          <div id="display-subtitle" class="display-subtitle"></div>
+        </div>
+        <div class="display-controls">
+          <button id="prev-slide-btn" class="secondary">Prev</button>
+          <button id="pause-slide-btn" class="secondary">Pause</button>
+          <button id="next-slide-btn" class="secondary">Next</button>
+          <button id="exit-display-btn" class="primary">Exit</button>
+        </div>
+      </div>
+      <div id="display-slide" class="display-slide"></div>
+    </div>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
